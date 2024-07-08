@@ -7,13 +7,13 @@
 """
 import os
 
-os.environ['CUDA_VISIBLE_DEVICES'] = '7'
+os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 
 from utils import get_model_tokenizer
 
 if __name__ == '__main__':
     model, tokenizer = get_model_tokenizer(
-        '/mnt/SSD_12TB/model_gallery/Qwen2-7B-Instruct',
+        '/mnt/SSD_12TB/model_gallery/Qwen2-1.5B-Instruct',
         'Qwen2-72B-Instruct')
 
     prompt = '''
@@ -25,14 +25,14 @@ if __name__ == '__main__':
     prompt += '\n'
 
 
-    device = 'cuda'
+    device = 'cpu'
 
     messages = [
         {"role": "system", "content": "You are a pirate chatbot who always responds in pirate speak!"},
         {"role": "user", "content": "Who are you?"},
     ]
 
-    prompt = "你好"
+    prompt = "test"
     messages = [
         {"role": "system", "content": "You are a helpful assistant."},
         {"role": "user", "content": prompt}
